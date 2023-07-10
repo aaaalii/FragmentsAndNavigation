@@ -1,5 +1,7 @@
 package com.example.fragmentsandnavigation;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -60,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
                     if(id == R.id.nav_quiz){
                         if(flag != 1){
-                            firstFragment(new Quiz(), flag);
+                            firstFragment(new Quiz(MainActivity.this), flag);
                             flag = 1;
                         }
                         else {
-                            loadFragment(new Quiz(), flag);
+                            loadFragment(new Quiz(MainActivity.this), flag);
                         }
                     }
                     drawerLayout.closeDrawer(GravityCompat.START);

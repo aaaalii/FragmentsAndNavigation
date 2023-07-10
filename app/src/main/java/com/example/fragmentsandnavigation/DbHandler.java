@@ -34,7 +34,7 @@ public class DbHandler extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_QUESTION + " TEXT,"
                 + COLUMN_ANSWER_ENTERED + " TEXT,"
-                + COLUMN_ANSWER_CORRECT + "TEXT"
+                + COLUMN_ANSWER_CORRECT + " TEXT"
                 + ")";
         db.execSQL(sql);
     }
@@ -126,6 +126,24 @@ public class DbHandler extends SQLiteOpenHelper {
         db.close();
 
         return questions;
+    }
+
+    public int getId(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] projection = {COLUMN_ID};
+        String sortOrder = COLUMN_ID + " DESC";
+        Cursor cursor = db.query(TABLE_NAME, projection, null, null, null, null, sortOrder);
+
+        int lastEntryId = -1;
+
+        if (cursor.moveToFirst()) {
+            @SuppressLint("Range") int l = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
+            lastEntryId = l;
+        }
+
+        cursor.close();
+
+        return lastEntryId;
     }
 
     public void removeAllEntriesFromTable() {
