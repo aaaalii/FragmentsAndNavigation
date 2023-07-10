@@ -97,8 +97,6 @@ public class Quiz extends Fragment {
             }
         });
 
-
-
         return view;
     }
 

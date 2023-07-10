@@ -58,11 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     int id = item.getItemId();
-                    boolean chk = true;
-
-                    if(!chk){
-                        return true;
-                    }
 
                     if(id == R.id.nav_quiz){
                         FragmentManager fm = getSupportFragmentManager();
@@ -70,15 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
                         ft.add(R.id.nav_host_fragment_content_main, new Quiz());
                         ft.commit();
-                        chk = false;
-                        drawerLayout.closeDrawer(GravityCompat.START);
                     }
+                    drawerLayout.closeDrawer(GravityCompat.START);
 
-                    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                        // Close the drawer and return true to consume the event
-                        drawerLayout.closeDrawers();
-                        return true;
-                    }
                     // return will be true to view the selection
                     return true;
                 }
