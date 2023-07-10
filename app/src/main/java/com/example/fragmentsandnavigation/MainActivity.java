@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                         else {
                             loadFragment(new Quiz(MainActivity.this), flag);
                         }
+                    } else if (id == R.id.nav_result) {
+                        replaceFragement(new QuizResult());
                     }
                     drawerLayout.closeDrawer(GravityCompat.START);
 
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         if (flag == 1) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.container, fragment);
+            ft.replace(R.id.nav_host_fragment_content_main, fragment);
             ft.commit();
         }
     }
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         if (flag == 0) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.add(R.id.container, fragment);
+            ft.add(R.id.nav_host_fragment_content_main, fragment);
             ft.commit();
         }
     }

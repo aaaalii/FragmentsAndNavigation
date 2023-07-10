@@ -7,7 +7,10 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -214,17 +217,13 @@ public class Quiz extends Fragment {
         String completionMessage = "Quiz completed!";
         Toast.makeText(requireContext(), completionMessage, Toast.LENGTH_SHORT).show();
 
-        // Start the MainActivity
+        //FragmentManager fm = getSupportFra
         Intent intent = new Intent(requireContext(), MainActivity.class);
-
-        dBHandler.removeAllEntriesFromTable();
         startActivity(intent);
 
         // Finish the current activity (QuizActivity)
         requireActivity().finish();
     }
-
-
 
     @Override
     public void onDestroyView() {
