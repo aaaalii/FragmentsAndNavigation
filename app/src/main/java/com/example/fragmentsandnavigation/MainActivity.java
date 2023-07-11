@@ -69,7 +69,14 @@ public class MainActivity extends AppCompatActivity {
                             loadFragment(new Quiz(MainActivity.this), flag);
                         }
                     } else if (id == R.id.nav_result) {
-                        replaceFragement(new QuizResult());
+                        if(flag!=1){
+                            firstFragment(new QuizResult(), flag);
+                            flag = 1;
+                        }
+                        else{
+                            loadFragment(new Quiz(MainActivity.this), flag);
+                        }
+
                     }
                     drawerLayout.closeDrawer(GravityCompat.START);
 
