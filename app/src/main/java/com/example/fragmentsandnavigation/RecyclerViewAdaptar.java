@@ -24,7 +24,7 @@ public class RecyclerViewAdaptar extends RecyclerView.Adapter<RecyclerViewAdapta
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerViewAdaptar.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.single_result_item, parent, false);
         return new ViewHolder(itemView);
@@ -57,15 +57,5 @@ public class RecyclerViewAdaptar extends RecyclerView.Adapter<RecyclerViewAdapta
             cAns = itemView.findViewById(R.id.correctans);
             yAns = itemView.findViewById(R.id.yourans);
         }
-
-//        @SuppressLint("SetTextI18n")
-//        public void bind(Questions quizResult) {
-//            String q = quizResult.getQuestion();
-//            String cns = quizResult.getCorrectAnswer();
-//            String yns = quizResult.getUserAnswer();
-//            question.setText(q);
-//            cAns.setText(cns);
-//            yAns.setText(yns);
-//        }
     }
 }

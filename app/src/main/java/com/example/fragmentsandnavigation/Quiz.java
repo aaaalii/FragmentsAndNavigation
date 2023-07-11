@@ -208,9 +208,10 @@ public class Quiz extends Fragment {
 
     private void insertQuestionScore(String q, String a1, String a2) {
         // databaseHelper.deleteAllQuizResults();
-        dBHandler.insertQuestion(q);
-        dBHandler.insertActualAnswer(a1);
-        dBHandler.insertUserAns(a2);
+//        dBHandler.insertQuestion(q);
+//        dBHandler.insertActualAnswer(a1);
+//        dBHandler.insertUserAns(a2);
+        dBHandler.insertEverything(q, a1, a2);
     }
 
     private void finishQuiz() {
