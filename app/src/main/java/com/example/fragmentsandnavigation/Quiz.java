@@ -137,7 +137,6 @@ public class Quiz extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         letterTextView = view.findViewById(R.id.letter_text_view);
-        TextView answer_text_view = view.findViewById(R.id.answer_text_view);
 
         Button skyButton = view.findViewById(R.id.sky_button);
         Button grassButton = view.findViewById(R.id.grass_button);
@@ -152,11 +151,6 @@ public class Quiz extends Fragment {
         questionCount = 0;
 
         displayRandomLetter();
-
-        // Clear the answerTextView when coming back from QuizResultFragment
-        if (getArguments() != null && getArguments().getBoolean("clearAnswer", false)) {
-            answer_text_view.setText("");
-        }
     }
 
     private void displayRandomLetter() {

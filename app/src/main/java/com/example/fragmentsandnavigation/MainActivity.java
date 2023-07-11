@@ -2,6 +2,8 @@ package com.example.fragmentsandnavigation;
 
 import static android.app.PendingIntent.getActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -74,8 +76,16 @@ public class MainActivity extends AppCompatActivity {
                             flag = 1;
                         }
                         else{
-                            loadFragment(new Quiz(MainActivity.this), flag);
+                            loadFragment(new QuizResult(), flag);
                         }
+
+                    }
+                    else if(id == R.id.nav_github){
+                        String websiteUrl = "https://www.github.com/aaaalii";
+
+// In your click event listener or method
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl));
+                        startActivity(intent);
 
                     }
                     drawerLayout.closeDrawer(GravityCompat.START);
